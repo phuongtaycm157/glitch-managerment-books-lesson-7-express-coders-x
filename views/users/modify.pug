@@ -1,0 +1,9 @@
+h1 Modify User
+
+form(action="/users/"+user.id+"/modify" method="POST")
+  div
+    label(for="name") Name
+  div
+    input(type="text" id="name" name="name" value=user.name)
+    span &nbsp;
+    button(type="submit") accept
