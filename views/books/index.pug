@@ -1,0 +1,24 @@
+h1 Books
+
+form(action="/books/create", method="POST")
+  label(for="title") Title: 
+  input(type="text" id="title" name="title")
+  span &nbsp;
+  label(for="discription") Discription: 
+  input(type="text" id="discription" name="discription")
+  span &nbsp;
+  button(type="submit") Create
+  
+table(border=1)
+  tr
+    th Title
+    th Discription
+    th Action
+  each book in books
+    tr
+      td= book.title
+      td= book.discription
+      td
+        a(href="/books/"+book.id+"/title") Modify title
+        span &nbsp;
+        a(href="/books/"+book.id+"/delete") Delete

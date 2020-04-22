@@ -1,0 +1,7 @@
+h1 Modify Title
+
+form(action='/books/'+book.id+'/title', method="POST")
+  label(for="title") Title: 
+  input(type="text" id="title" name="title" value=book.title)
+  span &nbsp;
+  button(type="submit") Modify
