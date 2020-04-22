@@ -1,0 +1,27 @@
+h1 User List
+
+p
+  a(href="/users/create")
+    button Create User
+p
+  form(action="/users/search" method="GET")
+    input(type="text" name="q" value=q)
+    span &nbsp;
+    button(type="submit") Search
+
+hr
+
+table(border=1)
+  tr
+    th Name
+    th Action
+  each user in users
+    tr
+      td= user.name
+      td
+        a(href="/users/"+user.id+"/modify")
+          button Modify
+        span &nbsp;
+        a(href="/users/"+user.id+"/delete")
+          button Delete
+      
