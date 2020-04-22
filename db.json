@@ -1,11 +1,6 @@
 {
   "books": [
     {
-      "title": "Tôi tài giỏi bạn cũng thế",
-      "discription": "Sách giúp tự phát triển bản thân",
-      "id": "NrtWVoxQq"
-    },
-    {
       "title": "Code dạo ký sự",
       "discription": "Sách giúp tìm hiểu về ngành code",
       "id": "5Z93L1f52"
@@ -14,6 +9,11 @@
       "title": "Get programming with Javascript",
       "discription": "John R.Larsen",
       "id": "m1zD_TTC7"
+    },
+    {
+      "title": "Get programming with Python",
+      "discription": "Ana Bell",
+      "id": "b6NqJBVxn"
     }
   ]
 }

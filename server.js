@@ -6,13 +6,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
-const db = low(adapter);
-const shortid = require('shortid');
 
-db.defaults({books: []}).write();
+const booksRouter = require('./router/books.router');
 
 // our default array of dreams
 const dreams = [
@@ -42,38 +37,7 @@ app.get("/dreams", (request, response) => {
   response.json(dreams);
 });
 
-app.get("/books", (req, res) => {
-  res.render('books/index', {
-    books: db.get('books').value()
-  });
-});
-
-app.post('/books/create', (req, res) => {
-  var book = req.body;
-  book.id = shortid.generate();
-  db.get('books').push(book).write();
-  res.redirect('/books');
-})
-
-app.get('/books/:id/title', (req, res) => {
-  var id = req.params;
-  var book = db.get('books').find(id).value();
-  res.render('books/modify', {book: book});
-});
-
-app.post('/books/:id/title', (req, res) => {
-  var id = req.params;
-  var book = db.get('books').find(id).value();
-  book.title = req.body.title;
-  db.get('books').find({id: id}).assign(book).write();
-  res.redirect('/books');
-});
-
-app.get('/books/:id/delete', (req, res) => {
-  var id = req.params;
-  db.get('books').remove(id).write();
-  res.redirect('/books');
-})
+app.use('/books', booksRouter);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
