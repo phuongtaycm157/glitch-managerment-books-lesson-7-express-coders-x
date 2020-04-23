@@ -1,0 +1,14 @@
+h1 List Transaction
+
+p
+  a(href="/transaction/create")
+    button Create new Transaction
+
+table(border=1)
+  tr
+    th User Name
+    th Book Name
+  each t in transactions
+    tr
+      td= t.user.name
+      td= t.book.title
