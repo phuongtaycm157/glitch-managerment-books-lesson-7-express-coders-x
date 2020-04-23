@@ -39,22 +39,26 @@
     {
       "userId": "HbPuFq3kC",
       "bookId": "5Z93L1f52",
-      "id": "hmzj3yAmb"
+      "id": "hmzj3yAmb",
+      "isComplete": true
     },
     {
       "userId": "JVkun9zfK",
       "bookId": "m1zD_TTC7",
-      "id": "TSJXeXbNX"
+      "id": "TSJXeXbNX",
+      "isComplete": false
     },
     {
       "userId": "CgAZFZnBA",
       "bookId": "b6NqJBVxn",
-      "id": "GoJAiCKtx"
+      "id": "GoJAiCKtx",
+      "isComplete": true
     },
     {
       "userId": "n4ras0Vaj",
       "bookId": "b6NqJBVxn",
-      "id": "oRHp4TyzX"
+      "id": "oRHp4TyzX",
+      "isComplete": false
     }
   ]
 }
