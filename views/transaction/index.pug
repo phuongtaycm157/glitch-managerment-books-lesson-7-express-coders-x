@@ -8,7 +8,15 @@ table(border=1)
   tr
     th User Name
     th Book Name
+    th Completed
+    th Action
   each t in transactions
     tr
       td= t.user.name
       td= t.book.title
+      td= t.isComplete
+      td
+        if !t.isComplete
+          a(href="/transaction/"+t.id+"/complete") Complete
+        else
+          span completed

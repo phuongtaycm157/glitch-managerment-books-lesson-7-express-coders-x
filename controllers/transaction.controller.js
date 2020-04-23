@@ -9,6 +9,7 @@ controllers.index = function(req, res) {
       id: tr.id,
       bookId: tr.bookId,
       userId: tr.userId,
+      isComplete: tr.isComplete,
       book: db.get('books').find({id: tr.bookId}).value(),
       user: db.get('users').find({id: tr.userId}).value()
     }
@@ -32,8 +33,20 @@ controllers.create = function(req, res) {
 controllers.postCreate = function(req, res) {
     var trans = req.body;
     trans.id = shortid.generate();
+    trans.isComplete = false;
     db.get('transaction').push(trans).write();
     res.redirect('/transaction');
+}
+
+controllers.complete = function(req, res) {
+  var id = req.params;
+  var transaction = db.get('transaction').find(id).value();
+  transaction.isComplete = true;
+  db.get('transaction')
+    .find(id)
+    .assign(transaction)
+    .write();
+  res.redirect('/transaction')
 }
 
 module.exports = controllers;
