@@ -12,7 +12,12 @@ router.get('/', function(req, res) {
 })
 
 router.get('/create', function(req, res) {
- res.render('users/create'); 
+  var users = db.get('users').value();
+  var books = db.get('books').value();
+  res.render('users/create', {
+    users: users,
+    books: books
+  }); 
 })
 
 router.post('/create', function(req, res) {

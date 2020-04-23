@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 
 const booksRouter = require('./router/books.router');
 const usersRouter = require('./router/users.router');
+const transactionRouter = require('./router/transaction.router');
 
 // our default array of dreams
 const dreams = [
@@ -40,6 +41,7 @@ app.get("/dreams", (request, response) => {
 
 app.use('/books', booksRouter);
 app.use('/users', usersRouter);
+app.use('/transaction', transactionRouter);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {

@@ -34,5 +34,22 @@
       "name": "Phat",
       "id": "CgAZFZnBA"
     }
+  ],
+  "transaction": [
+    {
+      "userId": "HbPuFq3kC",
+      "bookId": "5Z93L1f52",
+      "id": "hmzj3yAmb"
+    },
+    {
+      "userId": "JVkun9zfK",
+      "bookId": "m1zD_TTC7",
+      "id": "TSJXeXbNX"
+    },
+    {
+      "userId": "CgAZFZnBA",
+      "bookId": "b6NqJBVxn",
+      "id": "GoJAiCKtx"
+    }
   ]
 }
