@@ -41,12 +41,16 @@ controllers.postCreate = function(req, res) {
 controllers.complete = function(req, res) {
   var id = req.params;
   var transaction = db.get('transaction').find(id).value();
-  transaction.isComplete = true;
-  db.get('transaction')
-    .find(id)
-    .assign(transaction)
-    .write();
-  res.redirect('/transaction')
+  if (transaction) {
+    transaction.isComplete = true;
+    db.get('transaction')
+      .find(id)
+      .assign(transaction)
+      .write();
+    res.redirect('/transaction')
+  }else {
+    res.redirect('/transaction')
+  }
 }
 
 module.exports = controllers;
