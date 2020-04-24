@@ -15,18 +15,6 @@ controllers.create = function(req, res) {
 
 controllers.postCreate = function(req, res) {
     var user = req.body;
-    var err = [];
-    if (!user.name) {
-      err.push('Enter user name, please!!!');
-    } else if (user.name.length > 30) {
-      err.push('User name less than 30 characters!!!');
-    }
-    if (err.length) {
-      res.render('users/create', {
-        err: err
-      });
-      return;
-    }
     user.id = shortid.generate();
     db.get('users').push(user).write();
     res.redirect('/users');
