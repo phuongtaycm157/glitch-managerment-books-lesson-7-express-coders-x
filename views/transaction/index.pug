@@ -1,22 +1,44 @@
-h1 List Transaction
+extends ../layouts/header
+block link
+  link(rel="stylesheet" href="/static/styles/style.css")
+block content
+  .navbar.navbar-expand-lg.navbar-dark.navbar-bg
+    .container
+      a.navbar-brand.text-light(href='/') Nishi
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+        span.navbar-toggler-icon
+      #navbar.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/books') Books
+          li.nav-item
+            a.nav-link(href='/users') Users
+          li.nav-item
+            a.nav-link.active(href='/transaction') Transaction
 
-p
-  a(href="/transaction/create")
-    button Create new Transaction
+  .container.mt-5
+    h1.display-4.mb-4 List Transaction
 
-table(border=1)
-  tr
-    th User Name
-    th Book Name
-    th Completed
-    th Action
-  each t in transactions
-    tr
-      td= t.user.name
-      td= t.book.title
-      td= t.isComplete
-      td
-        if !t.isComplete
-          a(href="/transaction/"+t.id+"/complete") Complete
-        else
-          span completed
+    p
+      a(href="/transaction/create").btn.btn-primary Create new Transaction
+
+    table.table.table-striped
+      tr
+        th #
+        th User Name
+        th Book Name
+        th Completed
+        th Action
+      each t, i in transactions
+        tr
+          td= (i + 1)
+          td= t.user.name
+          td= t.book.title
+          td= t.isComplete
+          td
+            if !t.isComplete
+              a(href="/transaction/"+t.id+"/complete").btn.btn-primary Complete
+            else
+              button.btn.btn-dark(disabled) Completed

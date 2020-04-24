@@ -1,0 +1,140 @@
+* {
+	font-family: "Poppins", sans-serif;
+}
+.navbar-brand {
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.navbar-bg {
+	background-color: #00000055;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+
+.nav-link {
+	font-size: 1rem;
+	transition: .3s;
+	margin-right: 10px;
+	border-bottom: 2px solid #e1e1e100;
+}
+.nav-link:hover {
+	border-bottom: 2px solid #e1e1e1ff;
+}
+.active {
+	border-bottom: 2px solid #e1e1e1;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	top: 40vh;
+	text-shadow: 0px 1px 2px #464646;
+}
+.title h1 {
+	color: white;
+	font-weight: bold;
+}
+
+.title div {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.banner-bg {
+	height: 100vh;
+	width: 100%;
+	background-image: url(https://cdn.glitch.com/875f2937-8aa0-4c26-8257-f047934d13c5%2Fbanner-bg.jpg?v=1587734164397);
+	background-size: cover;
+	background-position: center;
+}
+
+.highlight-book {
+	height: 70vh;
+}
+.highlight-book .container,
+.highlight-book .container .row,
+.highlight-book .container .row .col {
+	height: inherit;
+}
+.highlight-book .container .row .col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.highlight-book .image-left,
+.highlight-book .discription {
+	height: 80%;
+	width: 100%;
+}
+.highlight-book .image-left {
+	background-image: url(https://cdn.glitch.com/875f2937-8aa0-4c26-8257-f047934d13c5%2Fimage-left.jpg?v=1587734125599);
+	background-size: cover;
+	background-position: center;
+	border-radius: 5px;
+	box-shadow: 0 0 2px black;
+}
+
+.section-service {
+	background-color: #f8f9fa;
+	padding-top: 10vh;
+	padding-bottom: 10vh;
+}
+.section-service .container .row .col-lg-8 div {
+	text-align: center;
+}
+.section-service .container .row .col-lg-8 .lead {
+	color: #878787;
+}
+.section-service .container .row .col-lg-4 .card {
+	box-shadow: 0 0 5px #eae0e0;
+	border: none;
+	height: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.section-service .container .row .col-lg-4 .card div:first-child {
+	color: #4f9cff;
+	margin-bottom: 15px;
+}
+.section-service .container .row .col-lg-4 .card div:last-child {
+	text-align: center;
+	color: #6c757d;
+}
+.section-service .container .row .col-lg-4 .card .card-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+footer {
+	background-color: #000;
+}
+footer .container .row .col-4 {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+footer .container .row .col-4 div {
+	color: #b2b2b2;
+	text-align: center;
+}
+footer .container .row .col-4 div:first-child {
+	margin-bottom: 30px;
+}
+footer .container .row .col-4 div:first-child i {
+	margin-right: 20px;
+	margin-left: 20px;
+	cursor: pointer;
+	transition: .3s;
+}
+footer .container .row .col-4 div:last-child span {
+	color: #5a5acf;
+	cursor: pointer;
+}
+footer .container .row .col-4 div:first-child i:hover, 
+footer .container .row .col-4 div:last-child span:hover {
+	color: #4f9cff;
+}
