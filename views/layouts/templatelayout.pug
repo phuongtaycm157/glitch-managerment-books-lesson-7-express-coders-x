@@ -12,6 +12,21 @@ html
     block title
     block link
   body
+    .navbar.navbar-expand-lg.navbar-dark.navbar-bg
+      .container
+        a.navbar-brand.text-light(href='/') Nishi
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+          span.navbar-toggler-icon
+        #navbar.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='/') Home
+            li.nav-item
+              a.nav-link(href='/books') Books
+            li.nav-item
+              a.nav-link.active(href='/users') Users
+            li.nav-item
+              a.nav-link(href='/transaction') Transaction
     block content
 
     //- <!-- Optional JavaScript -->

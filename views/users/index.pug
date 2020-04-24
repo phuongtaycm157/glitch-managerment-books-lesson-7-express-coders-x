@@ -21,15 +21,16 @@ block content
             a.nav-link(href='/transaction') Transaction
 
   .container.mt-5
-    h1.display-4.mb-4 User List
-
-    p
+    .d-flex.align-items-center
+      h1.display-4.mr-4 User List
       a(href="/users/create").btn.btn-primary Create User
-    p
-      form(action="/users/search" method="GET").form-inline
-        input(type="text" name="q" value=q).form-control
-        span &nbsp;
-        button(type="submit").btn.btn-primary Search
+    
+    div.row
+      div.col-lg-5.ml-auto
+        form(action="/users/search" method="GET").form-inline
+          input(type="text" name="q" value=q).form-control
+          span &nbsp;
+          button(type="submit").btn.btn-primary Search
 
     hr
 
