@@ -21,9 +21,7 @@ const dreams = [
 app.set('views', './views');
 app.set('view engine','pug');
 
-// make all the files in 'public' available
-// https://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"));
+app.use('/static', express.static("public"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,12 +29,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
   response.render('index');
-});
-
-// send the default array of dreams to the webpage
-app.get("/dreams", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(dreams);
 });
 
 app.use('/books', booksRouter);

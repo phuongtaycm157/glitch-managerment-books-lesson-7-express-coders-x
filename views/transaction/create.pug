@@ -1,15 +1,35 @@
-h1 Create New Transaction
+extends ../layouts/header
+block link
+  link(rel="stylesheet" href="/static/styles/style.css")
+block content
+  .navbar.navbar-expand-lg.navbar-dark.navbar-bg
+    .container
+      a.navbar-brand.text-light(href='/') Nishi
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+        span.navbar-toggler-icon
+      #navbar.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/books') Books
+          li.nav-item
+            a.nav-link(href='/users') Users
+          li.nav-item
+            a.nav-link.active(href='/transaction') Transaction
 
-form(action="/transaction/create" method="POST")
-  
-  label(for="users") User: 
-  select(id="users" name="userId")
-    each user in users
-      option(value=user.id) #{user.name}
-  span &nbsp;&nbsp;&nbsp;&nbsp;
-  label(for="books") Book: 
-  select(id="books" name="bookId")
-    each book in books
-      option(value=book.id) #{book.title}
-  p
-    button(type="submit") Create
+  .container.mt-5
+    h1.display-4.mb-5 Create New Transaction
+
+    form(action="/transaction/create" method="POST")
+      .form-group
+        label(for="users") User: 
+        select(id="users" name="userId").form-control
+          each user in users
+            option(value=user.id) #{user.name}
+      .form-group
+        label(for="books") Book: 
+        select(id="books" name="bookId").form-control
+          each book in books
+            option(value=book.id) #{book.title}
+      button(type="submit").btn.btn-primary Create

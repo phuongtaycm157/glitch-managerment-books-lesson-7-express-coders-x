@@ -1,9 +1,29 @@
-h1 Modify User
+extends ../layouts/header
+block link
+  link(rel="stylesheet" href="/static/styles/style.css")
+block content
+  .navbar.navbar-expand-lg.navbar-dark.navbar-bg
+    .container
+      a.navbar-brand.text-light(href='/') Nishi
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+        span.navbar-toggler-icon
+      #navbar.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/books') Books
+          li.nav-item
+            a.nav-link.active(href='/users') Users
+          li.nav-item
+            a.nav-link(href='/transaction') Transaction
 
-form(action="/users/"+user.id+"/modify" method="POST")
-  div
-    label(for="name") Name
-  div
-    input(type="text" id="name" name="name" value=user.name)
-    span &nbsp;
-    button(type="submit") accept
+  .container.mt-5
+    h1.display-4.mb-4 Modify User
+
+    form(action="/users/"+user.id+"/modify" method="POST").form-inline
+      div.form-group
+        label(for="name") Name:&nbsp;
+        input(type="text" id="name" name="name" value=user.name).form-control
+      span &nbsp;&nbsp;
+      button(type="submit").btn.btn-primary accept
