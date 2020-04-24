@@ -1,93 +1,95 @@
 extends ./layouts/header
+block title
+  title Home
 block link
-	link(rel="stylesheet" href="/static/styles/style.css")
+  link(rel="stylesheet" href="/static/styles/style.css")
 block content
-	.banner-bg
-		.navbar.navbar-expand-lg.navbar-dark.navbar-bg
-			.container
-				a.navbar-brand.text-light(href='/') Nishi
-				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
-					span.navbar-toggler-icon
-				#navbar.collapse.navbar-collapse
-					ul.navbar-nav.ml-auto
-						li.nav-item
-							a.nav-link.active(href='/') Home
-						li.nav-item
-							a.nav-link(href='/books') Books
-						li.nav-item
-							a.nav-link(href='/users') Users
-						li.nav-item
-							a.nav-link(href='/transaction') Transaction
-		.title
-			h1.display-4 Nishi World Books
-			div based in Ninh Kieu, Can Tho.
-	.highlight-book
-		.container
-			.row
-				.col.col-lg-5
-					.image-left
-				.col.col-lg-7
-					.discription
-						h2.mb-3.text-weight-bold About library
-						h4.mb-4 Hello! I&apos;m Nishi Nguyen
-						p.mb-4
-							| I combine our passion for design focused in people with advanced development technologies. 350+ clients have procured exceptional results and happiness while working with me.
-						p
-							| Delivering work within time and budget which meets client&rsquo;s requirements is our moto. when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry&apos;s standard. Lorem Ipsum has been the industry&apos;s standard dummy text ever since.
-	.section-service
-		.container
-			.row.justify-content-center.mb-5
-				.col-lg-8
-					.h1 Our Services
-					.text-primary.mb-3 --------------
-					.lead
-						| How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.
-			.row
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-book.fa-5x
-						.card-title Read Books Online
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-shopping-cart.fa-5x
-						.card-title Buy Books
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-retweet.fa-5x
-						.card-title To Rent Books
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-retweet.fa-5x
-						.card-title To Rent Books
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-retweet.fa-5x
-						.card-title To Rent Books
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-				.col-lg-4.mb-4
-					.card.p-3
-						div
-							i.fas.fa-retweet.fa-5x
-						.card-title To Rent Books
-						div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
-	footer
-		.container
-			.row.justify-content-center
-				.col-4
-					.list-icon
-						i.fab.fa-twitter.fa-2x
-						i.fab.fa-facebook-f.fa-2x
-						i.fab.fa-github.fa-2x
-					.copyright
-						| Copyright &copy; 2020 
-						span Nishi
-						| . All Rights Reserved.
+  .banner-bg
+    .navbar.navbar-expand-lg.navbar-dark.navbar-bg
+      .container
+        a.navbar-brand.text-light(href='/') Nishi
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbar')
+          span.navbar-toggler-icon
+        #navbar.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link.active(href='/') Home
+            li.nav-item
+              a.nav-link(href='/books') Books
+            li.nav-item
+              a.nav-link(href='/users') Users
+            li.nav-item
+              a.nav-link(href='/transaction') Transaction
+    .title
+      h1.display-4 Nishi World Books
+      div based in Ninh Kieu, Can Tho.
+  .highlight-book
+    .container
+      .row
+        .col.col-lg-5
+          .image-left
+        .col.col-lg-7
+          .discription
+            h2.mb-3.text-weight-bold About library
+            h4.mb-4 Hello! I&apos;m Nishi Nguyen
+            p.mb-4
+              | I combine our passion for design focused in people with advanced development technologies. 350+ clients have procured exceptional results and happiness while working with me.
+            p
+              | Delivering work within time and budget which meets client&rsquo;s requirements is our moto. when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry&apos;s standard. Lorem Ipsum has been the industry&apos;s standard dummy text ever since.
+  .section-service
+    .container
+      .row.justify-content-center.mb-5
+        .col-lg-8
+          .h1 Our Services
+          .text-primary.mb-3 --------------
+          .lead
+            | How I can help take your next project to new heights! Thousands of clients have procured exceptional results while working with Me.
+      .row
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-book.fa-5x
+            .card-title Read Books Online
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-shopping-cart.fa-5x
+            .card-title Buy Books
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-retweet.fa-5x
+            .card-title To Rent Books
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-retweet.fa-5x
+            .card-title To Rent Books
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-retweet.fa-5x
+            .card-title To Rent Books
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+        .col-lg-4.mb-4
+          .card.p-3
+            div
+              i.fas.fa-retweet.fa-5x
+            .card-title To Rent Books
+            div We&apos;re smart, we&apos;re hard working, we&apos;re easy to talk to, and we love a challenge.
+  footer
+    .container
+      .row.justify-content-center
+        .col-4
+          .list-icon
+            i.fab.fa-twitter.fa-2x
+            i.fab.fa-facebook-f.fa-2x
+            i.fab.fa-github.fa-2x
+          .copyright
+            | Copyright &copy; 2020 
+            span Nishi
+            | . All Rights Reserved.
