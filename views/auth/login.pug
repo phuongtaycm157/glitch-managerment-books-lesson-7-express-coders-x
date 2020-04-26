@@ -1,0 +1,23 @@
+extends ../layouts/header
+
+block title
+  title Login
+  
+block content
+
+  .container.mt-5
+    h1.display-4.mb-4 Login
+    
+    if error
+      each e in error
+        .alert.alert-danger= e
+    
+    form(action='/auth/login' method='post')
+      .form-group
+        label(for='email') Email
+        input.form-control#email(type='text' name='email')
+      .form-group
+        label(for='password') Password
+        input.form-control#password(type='password' name='password')
+      button.btn.btn-primary Login
+  

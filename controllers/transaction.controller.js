@@ -24,6 +24,9 @@ controllers.index = function(req, res) {
 controllers.create = function(req, res) {
     var books = db.get('books').value();
     var users = db.get('users').value();
+    users = users.filter(x => {
+      return x.level !== 'root';
+    });
     res.render('transaction/create', {
       users: users,
       books: books
@@ -51,6 +54,26 @@ controllers.complete = function(req, res) {
   }else {
     res.redirect('/transaction')
   }
+}
+
+controllers.user = function(req, res) {
+  var user = db.get('users').find({id: req.cookies.userId}).value();
+  if (user.level === 'root') {
+    controllers.index(req, res);
+  }
+  var listUserTrans = db.get('transaction').value().filter(x => {
+    return x.userId == req.cookies.userId;
+  }).map(x => {
+    return {
+      id: x.id,
+      isComplete: x.isComplete,
+      book: db.get('books').find({id: x.bookId}).value(),
+      user: db.get('users').find({id: x.userId}).value()
+    }
+  });
+  res.render('transaction/index', {
+    transactions: listUserTrans
+  })
 }
 
 module.exports = controllers;
