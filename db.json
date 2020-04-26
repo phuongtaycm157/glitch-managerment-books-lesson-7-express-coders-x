@@ -19,28 +19,47 @@
   "user": [],
   "users": [
     {
+      "name": "root",
+      "id": "Oz9O3Q3WD",
+      "email": "root@example.com",
+      "password": "111111",
+      "level": "root"
+    },
+    {
       "name": "Thinh",
-      "id": "HbPuFq3kC"
+      "id": "HbPuFq3kC",
+      "email": "thinh@example.com",
+      "password": "123123"
     },
     {
       "name": "Hung",
-      "id": "JVkun9zfK"
+      "id": "JVkun9zfK",
+      "email": "hung@example.com",
+      "password": "123123"
     },
     {
       "name": "Tan",
-      "id": "n4ras0Vaj"
+      "id": "n4ras0Vaj",
+      "email": "tan@example.com",
+      "password": "123123"
     },
     {
       "name": "Phat",
-      "id": "CgAZFZnBA"
+      "id": "CgAZFZnBA",
+      "email": "phat@example.com",
+      "password": "123123"
     },
     {
       "name": "An",
-      "id": "ZGGximZkG"
+      "id": "ZGGximZkG",
+      "email": "an@example.com",
+      "password": "123123"
     },
     {
       "name": "Dung",
-      "id": "LWO33fBb4"
+      "id": "LWO33fBb4",
+      "email": "dung@example.com",
+      "password": "123123"
     }
   ],
   "transaction": [
@@ -67,6 +86,18 @@
       "bookId": "b6NqJBVxn",
       "id": "oRHp4TyzX",
       "isComplete": false
+    },
+    {
+      "userId": "HbPuFq3kC",
+      "bookId": "m1zD_TTC7",
+      "id": "Kn_MN6W8h",
+      "isComplete": true
+    },
+    {
+      "userId": "HbPuFq3kC",
+      "bookId": "b6NqJBVxn",
+      "id": "6jUGtTabb",
+      "isComplete": true
     }
   ]
 }
