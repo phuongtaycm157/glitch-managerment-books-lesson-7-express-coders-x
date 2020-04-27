@@ -38,7 +38,7 @@ block content
         th #
         th Title
         th Discription
-        th Action
+        th(style="width: 25%") Action
       each book, i in books
         tr
           td= (i+1)
@@ -49,4 +49,38 @@ block content
             span &nbsp;
             a(href="/books/"+book.id+"/delete").btn.btn-danger Delete
 
-
+    .row
+      ul.pagination.ml-auto
+        if page == 1
+          li.page-item.active
+            a.page-link(href="/books?page=1") 1
+          li.page-item
+            a.page-link(href="/books?page=2") 2
+          li.page-item
+            a.page-link(href="/books?page=3") 3
+          li.page-item
+            a.page-link(href="/books?page="+endPage) End
+        else if page == endPage
+          li.page-item
+            a.page-link(href="/books?page=1") Start
+          li.page-item
+            - var p = endPage - 2
+            a.page-link(href="/books?page="+p)=p
+          li.page-item
+            - var p = endPage - 1
+            a.page-link(href="/books?page="+p)=p
+          li.page-item.active
+            a.page-link(href="/books?page="+endPage)=endPage
+        else
+          li.page-item
+            a.page-link(href="/books?page=1") Start
+          li.page-item
+            - var p = parseInt(page)-1
+            a.page-link(href="/books?page="+p)=p
+          li.page-item.active
+            a.page-link(href="/books?page="+page)=page
+          li.page-item
+            - var p = parseInt(page)+1
+            a.page-link(href="/books?page="+p)=p
+          li.page-item
+            a.page-link(href="/books?page="+endPage) End
