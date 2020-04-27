@@ -1,3 +1,5 @@
+const md5 = require('md5');
+
 const db = require('../db');
 let authControl = {};
 
@@ -13,7 +15,8 @@ authControl.postLogin = (req, res) => {
     })
     return;
   }
-  if (user.password !== req.body.password) {
+  let hashPassword = md5(req.body.password);
+  if (user.password !== hashPassword) {
     res.render('auth/login', {
       error: ['Wrong password!!!']
     })
