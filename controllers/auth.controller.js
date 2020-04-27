@@ -1,4 +1,4 @@
-// const md5 = require('md5');
+const sgMail = require('../sendGridAPI');
 const bcrypt = require('bcrypt');
 
 const db = require('../db');
@@ -16,7 +16,14 @@ authControl.postLogin = (req, res) => {
     })
     return;
   }
-  if (user.wrongLoginCount >= 4) {
+  if (user.wrongLoginCount >= 3) {
+    const msg = {
+      to: 'ngudai999@gmail.com',
+      from: 'tayb1709566@student.ctu.edu.vn',
+      subject: 'Security warning!!!',
+      text: 'there maybe be someone try to login by your accout!!!'
+    };
+    sgMail.send(msg);
     res.render('auth/login', {
       error: ['You are logining wrong too much!!!']
     })
