@@ -7,8 +7,7 @@ controllers.index = function(req, res) {
   var listTrans = db.get('transaction').value().map(function(tr) {
     return {
       id: tr.id,
-      bookId: tr.bookId,
-      userId: tr.userId,
+      level: 'root',
       isComplete: tr.isComplete,
       book: db.get('books').find({id: tr.bookId}).value(),
       user: db.get('users').find({id: tr.userId}).value()

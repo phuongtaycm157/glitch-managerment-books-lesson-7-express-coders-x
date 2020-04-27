@@ -41,7 +41,7 @@ block content
           td= t.isComplete
           td
             if !t.isComplete
-              if t.user.level === 'root'
+              if t.level === 'root'
                 a(href="/transaction/"+t.id+"/complete").btn.btn-primary Complete
               else
                 button.btn.btn-primary(disabled) Complete
