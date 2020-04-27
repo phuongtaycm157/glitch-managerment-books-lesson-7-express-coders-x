@@ -4,8 +4,18 @@ var db = require('../db.js');
 var controllers = {};
 
 controllers.index = (req, res) => {
+    var page = req.query.page || 1;
+    var numberItemInAPage = 7;
+    var start = (page - 1) * numberItemInAPage;
+    var end = numberItemInAPage * page;
+     
+    var books = db.get('books').value();
+    var sendBooks = books.slice(start, end);
+    var endPage = Math.ceil(books.length/numberItemInAPage);
     res.render('books/index', {
-        books: db.get('books').value()
+        books: sendBooks,
+        page: page,
+        endPage: endPage
     });
 };
 
