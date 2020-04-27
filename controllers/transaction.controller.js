@@ -56,12 +56,12 @@ controllers.complete = function(req, res) {
 }
 
 controllers.user = function(req, res) {
-  var user = db.get('users').find({id: req.cookies.userId}).value();
+  var user = db.get('users').find({id: req.signedCookies.userId}).value();
   if (user.level === 'root') {
     controllers.index(req, res);
   }
   var listUserTrans = db.get('transaction').value().filter(x => {
-    return x.userId == req.cookies.userId;
+    return x.userId == req.signedCookies.userId;
   }).map(x => {
     return {
       id: x.id,

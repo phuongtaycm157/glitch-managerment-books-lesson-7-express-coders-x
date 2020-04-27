@@ -22,7 +22,7 @@ app.use('/static', express.static("public"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
+app.use(cookieParser('signed'));
 
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
