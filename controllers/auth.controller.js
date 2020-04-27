@@ -24,14 +24,14 @@ authControl.postLogin = (req, res) => {
   }
   bcrypt.compare(req.body.password, user.password, function(err, result) {
     if (!result) {
-    user.wrongLoginCount++;
-    res.render('auth/login', {
-      error: ['Wrong password!!!']
-    })
-    return;
-  }
-  res.cookie('userId', user.id);
-  res.redirect('/transaction');
+      user.wrongLoginCount++;
+      res.render('auth/login', {
+        error: ['Wrong password!!!']
+      })
+      return;
+    }
+    res.cookie('userId', user.id, {signed: true});
+    res.redirect('/transaction');
   })
 }
 
