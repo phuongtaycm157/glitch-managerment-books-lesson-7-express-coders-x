@@ -22,10 +22,15 @@ block content
 
   .container.mt-5
     h1.display-4.mb-4 Modify User
+    
+    img(src=user.avatar)
 
-    form(action="/users/"+user.id+"/modify" method="POST").form-inline
-      div.form-group
+    form(action="/users/"+user.id+"/modify" method="POST" enctype="multipart/form-data")
+      .form-group
         label(for="name") Name:&nbsp;
         input(type="text" id="name" name="name" value=user.name).form-control
+      .form-group
+        label(for="avatar") New Avatar:&nbsp;
+        input(type="file" id="avatar" name="avatar").form-control-file
       span &nbsp;&nbsp;
-      button(type="submit").btn.btn-primary accept
+      button(type="submit").btn.btn-primary Accept

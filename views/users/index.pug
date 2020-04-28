@@ -37,11 +37,14 @@ block content
     table.table.table-striped
       tr
         th #
+        th Avatar
         th Name
         th Action
       each user, i in users
         tr
           td= (i + 1)
+          td
+            img(src=user.avatar, width=32)
           td= user.name
           td
             a(href="/users/"+user.id+"/modify").btn.btn-secondary Modify

@@ -1,5 +1,6 @@
 var shortid = require('shortid');
 var db = require('../db');
+var cloudinary = require('cloudinary').v2
 
 var controllers = {};
 
@@ -33,10 +34,15 @@ controllers.modify = function(req, res) {
 }
 
 controllers.postModify = function(req, res) {
-    var user = req.body;
-    user.id = req.params.id;
-    db.get('users').find({id: user.id}).assign(user).write();
-    res.redirect('/users');
+    var id = req.params.id;
+    var originUser = db.get('users').find({id: id}).value();
+    originUser.name = req.body.name;
+    cloudinary.uploader.upload(req.file.path, (err, result) => {
+      originUser.avatar = result.secure_url;
+      db.get('users').find({id: id}).assign(originUser).write();
+      res.redirect('/users');
+    })
+    
 }
 
 controllers.search = function(req, res) {
