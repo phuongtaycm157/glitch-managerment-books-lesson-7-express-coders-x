@@ -38,6 +38,7 @@ authControl.postLogin = (req, res) => {
       return;
     }
     res.cookie('userId', user.id, {signed: true});
+    res.cookie('sessionId', req.signedCookies.sessionId, {signed: true});
     res.redirect('/transaction');
   })
 }

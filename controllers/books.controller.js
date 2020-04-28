@@ -15,7 +15,8 @@ controllers.index = (req, res) => {
     res.render('books/index', {
         books: sendBooks,
         page: page,
-        endPage: endPage
+        endPage: endPage,
+        numberItem: res.locals.numberItem || 0
     });
 };
 

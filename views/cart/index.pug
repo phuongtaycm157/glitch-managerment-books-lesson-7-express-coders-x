@@ -1,0 +1,22 @@
+extends ../layouts/header
+block title
+  title Cart
+block content
+  .container
+    h1.display-4.mt-5 Cart
+    
+    table.table.table-striped.mt-4
+      tr
+        th #
+        th Cover
+        th Name
+        th Number
+      each book, i in books
+        tr
+          td= (i+1)
+          td
+            img(src=book.coverUrl, width=32)
+          td= book.bookName
+          td= book.numberBook
+    .row.mt-3
+      a(href='/cart/transaction').btn.btn-primary.ml-auto Borrow

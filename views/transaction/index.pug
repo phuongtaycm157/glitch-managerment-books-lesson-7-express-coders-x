@@ -31,6 +31,7 @@ block content
         th #
         th User Name
         th Book Name
+        th Number Books
         th Completed
         th Action
       each t, i in transactions
@@ -38,6 +39,7 @@ block content
           td= (i + 1)
           td= t.user.name
           td= t.book.title
+          td= t.numberBook
           td= t.isComplete
           td
             if !t.isComplete
