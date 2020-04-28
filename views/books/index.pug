@@ -19,6 +19,10 @@ block content
             a.nav-link(href='/users') Users
           li.nav-item
             a.nav-link(href='/transaction') Transaction
+          li.nav-item
+            a.nav-link(href='/cart')
+              | Cart 
+              span.badge.badge-success= numberItem
   .container.mt-5
     h1.display-4.mb-4 Books
 
@@ -36,18 +40,23 @@ block content
     table.table.table-striped
       tr
         th #
+        th Cover
         th Title
         th Discription
         th(style="width: 25%") Action
       each book, i in books
         tr
           td= (i+1)
+          td
+            img(src=book.cover, width=32)
           td= book.title
           td= book.discription
           td
             a(href="/books/"+book.id+"/title").btn.btn-secondary Modify title
             span &nbsp;
             a(href="/books/"+book.id+"/delete").btn.btn-danger Delete
+            span &nbsp;
+            a(href="/cart/"+book.id+"/add").btn.btn-success Add to Cart
 
     .row
       ul.pagination.ml-auto

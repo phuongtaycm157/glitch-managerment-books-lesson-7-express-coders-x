@@ -10,7 +10,8 @@ controllers.index = function(req, res) {
       level: 'root',
       isComplete: tr.isComplete,
       book: db.get('books').find({id: tr.bookId}).value(),
-      user: db.get('users').find({id: tr.userId}).value()
+      user: db.get('users').find({id: tr.userId}).value(),
+      numberBook: tr.numberBook
     }
   });
   console.log(listTrans);
@@ -67,7 +68,8 @@ controllers.user = function(req, res) {
       id: x.id,
       isComplete: x.isComplete,
       book: db.get('books').find({id: x.bookId}).value(),
-      user: db.get('users').find({id: x.userId}).value()
+      user: db.get('users').find({id: x.userId}).value(),
+      numberBook: x.numberBook
     }
   });
   res.render('transaction/index', {
