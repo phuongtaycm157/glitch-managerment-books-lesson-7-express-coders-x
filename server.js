@@ -7,13 +7,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var cloudinary = require('cloudinary').v2
 
 const booksRouter = require('./router/books.router');
 const usersRouter = require('./router/users.router');
 const transactionRouter = require('./router/transaction.router');
 const auth = require('./router/auth.router');
 const authMid = require('./middleware/auth.middleware');
-
 
 app.set('views', './views');
 app.set('view engine','pug');

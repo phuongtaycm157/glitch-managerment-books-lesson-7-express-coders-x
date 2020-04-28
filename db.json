@@ -524,49 +524,56 @@
       "email": "root@example.com",
       "password": "$2b$10$x679tD2OFjcsrWLIISzoYeKwRaSfczPsW5MFPmJX85ns0g.1QEBsC",
       "level": "root",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     },
     {
       "name": "Thinh",
       "id": "HbPuFq3kC",
       "email": "thinh@example.com",
       "password": "$2b$10$F3p59q2MTQl/jj68lrsexeXwmxOgb/boveKzToPBS0RibZUpy5vCW",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     },
     {
       "name": "Hung",
       "id": "JVkun9zfK",
       "email": "hung@example.com",
       "password": "$2b$10$/12oVZUOa7mbYtOQ3AnKzuEfTb.Nd8U5gb.YqDvEXhrjzmPLAFagK",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     },
     {
       "name": "Tan",
       "id": "n4ras0Vaj",
       "email": "tan@example.com",
       "password": "$2b$10$VJwPJJzz1xy6sFwhHd.HD.gN0u25fLeI5pG/pxbl0/awWB11gARfy",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     },
     {
       "name": "Phat",
       "id": "CgAZFZnBA",
       "email": "phat@example.com",
       "password": "$2b$10$t.fGB3FpwxcVTa6io9cyLuKGeCekv72gonV3gijWaHHnX5nrgyUXm",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     },
     {
       "name": "An",
       "id": "ZGGximZkG",
       "email": "an@example.com",
       "password": "$2b$10$d5EL75BwUn7vXhTQJtuiBuPmtnl51K7Kug.Dcvai6xWksdeCFc0SG",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://res.cloudinary.com/ddi9fh6ae/image/upload/v1588088091/kr06vyyzuvy0tlf4qc0s.png"
     },
     {
       "name": "Dung",
       "id": "LWO33fBb4",
       "email": "dung@example.com",
       "password": "$2b$10$lGGUDfiF3yLDw38gRi1Ycuu5Xm2.t9EWE9RB/0W51wOS8dBeb/Y2O",
-      "wrongLoginCount": 0
+      "wrongLoginCount": 0,
+      "avatar": "https://cdn.glitch.com/7c1f9161-758d-486f-be86-03e44e2d47d2%2Fimg_avatar.png?v=1588086138048"
     }
   ],
   "transaction": [
