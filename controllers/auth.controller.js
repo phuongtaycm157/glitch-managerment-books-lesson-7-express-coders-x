@@ -1,15 +1,17 @@
 const sgMail = require('../sendGridAPI');
 const bcrypt = require('bcrypt');
 
-const db = require('../db');
+const User = require('../models/users.model')
+// const db = require('../db');
 let authControl = {};
 
 authControl.login = (req, res) => {
   res.render('auth/login');
 }
 
-authControl.postLogin = (req, res) => {
-  let user = db.get('users').find({email: req.body.email}).value();
+authControl.postLogin = async function (req, res) {
+  // let user = db.get('users').find({email: req.body.email}).value();
+  let user = await User.findOne({email: req.body.email})
   if (!user) {
     res.render('auth/login', {
       error: ['User does not exist!!!']
@@ -37,7 +39,7 @@ authControl.postLogin = (req, res) => {
       })
       return;
     }
-    res.cookie('userId', user.id, {signed: true});
+    res.cookie('userId', user.id.toString(), {signed: true});
     res.cookie('sessionId', req.signedCookies.sessionId, {signed: true});
     res.redirect('/transaction');
   })

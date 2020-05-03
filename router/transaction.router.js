@@ -5,7 +5,7 @@ var db = require('../db');
 var controllers = require('../controllers/transaction.controller');
 var authMid = require('../middleware/auth.middleware');
 
-router.get('/', controllers.user)
+router.get('/', controllers.index)
 
 router.get('/create', authMid.checkIsRoot, controllers.create)
 

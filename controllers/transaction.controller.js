@@ -1,29 +1,37 @@
 var shortid = require('shortid');
-var db = require('../db');
+// var db = require('../db');
+var Transaction = require('../models/transaction.model')
+var Book = require('../models/books.model')
+var User = require('../models/users.model')
 
 var controllers = {};
 
-controllers.index = function(req, res) {
-  var listTrans = db.get('transaction').value().map(function(tr) {
-    return {
-      id: tr.id,
+
+controllers.index = async function(req, res) {
+  var listTrans = await Transaction.find()
+  var books = await Book.find()
+  var users = await User.find()
+  console.log(listTrans, books, users)
+  var list = listTrans.map(function(x) {
+    let result = {
+      id: x.id,
       level: 'root',
-      isComplete: tr.isComplete,
-      book: db.get('books').find({id: tr.bookId}).value(),
-      user: db.get('users').find({id: tr.userId}).value(),
-      numberBook: tr.numberBook
+      isComplete: x.isComplete,
+      book: books.find(y => y._id.toString() == x.bookId),
+      user: users.find(y => y._id.toString() == x.userId),
+      numberBook: x.numberBook
     }
+    return result
   });
-  console.log(listTrans);
-  // res.json(listTrans);
+  console.log(list);
   res.render('transaction/index', {
-    transactions: listTrans
+    transactions: list
   })
 }
 
-controllers.create = function(req, res) {
-    var books = db.get('books').value();
-    var users = db.get('users').value();
+controllers.create = async function(req, res) {
+    var books = await Book.find();
+    var users = await User.find();
     users = users.filter(x => {
       return x.level !== 'root';
     });
@@ -35,40 +43,40 @@ controllers.create = function(req, res) {
 
 controllers.postCreate = function(req, res) {
     var trans = req.body;
-    trans.id = shortid.generate();
+    // trans.id = shortid.generate();
     trans.isComplete = false;
-    db.get('transaction').push(trans).write();
+    Transaction.create(trans, function(err, book){
+      if (err) return console.log(err);
+    })
     res.redirect('/transaction');
 }
 
-controllers.complete = function(req, res) {
-  var id = req.params;
-  var transaction = db.get('transaction').find(id).value();
+controllers.complete = async function(req, res) {
+  var id = req.params.id;
+  var transaction = await Transaction.findOne({_id: id});
   if (transaction) {
-    transaction.isComplete = true;
-    db.get('transaction')
-      .find(id)
-      .assign(transaction)
-      .write();
+    await Transaction.updateOne({_id: id}, {isComplete: true})
     res.redirect('/transaction')
   }else {
     res.redirect('/transaction')
   }
 }
 
-controllers.user = function(req, res) {
-  var user = db.get('users').find({id: req.signedCookies.userId}).value();
+controllers.user = async function(req, res) {
+  var id = req.signedCookies.userId
+  // var user = db.get('users').find({id: req.signedCookies.userId}).value();
+  var user = await User.findOne({_id: id})
   if (user.level === 'root') {
     controllers.index(req, res);
   }
-  var listUserTrans = db.get('transaction').value().filter(x => {
+  var listUserTrans = await Transaction.find().filter(x => {
     return x.userId == req.signedCookies.userId;
-  }).map(x => {
+  }).map(async function(x){
     return {
       id: x.id,
       isComplete: x.isComplete,
-      book: db.get('books').find({id: x.bookId}).value(),
-      user: db.get('users').find({id: x.userId}).value(),
+      book: await Book.findOne({_id: x.bookId}),
+      user: await User.findOne({_id: x.userId}),
       numberBook: x.numberBook
     }
   });

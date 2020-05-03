@@ -25,7 +25,7 @@ block content
               span.badge.badge-success= numberItem
   .container.mt-5
     h1.display-4.mb-4 Books
-
+    
     form(action="/books/create", method="POST").form-inline.mb-4
       .form-group
         label(for="title") Title:&nbsp;
@@ -52,11 +52,11 @@ block content
           td= book.title
           td= book.discription
           td
-            a(href="/books/"+book.id+"/title").btn.btn-secondary Modify title
+            a(href="/books/"+book._id+"/title").btn.btn-secondary Modify title
             span &nbsp;
-            a(href="/books/"+book.id+"/delete").btn.btn-danger Delete
+            a(href="/books/"+book._id+"/delete").btn.btn-danger Delete
             span &nbsp;
-            a(href="/cart/"+book.id+"/add").btn.btn-success Add to Cart
+            a(href="/cart/"+book._id+"/add").btn.btn-success Add to Cart
 
     .row
       ul.pagination.ml-auto
