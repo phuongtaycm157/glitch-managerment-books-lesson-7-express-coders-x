@@ -12,6 +12,8 @@ controllers.index = async function(req, res) {
     var books = await Book.find();
     var sendBooks = books.slice(start, end);
     var endPage = Math.ceil(books.length/numberItemInAPage);
+    
+    
     res.render('books/index', {
         books: sendBooks,
         page: page,
