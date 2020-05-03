@@ -19,6 +19,8 @@ const cart = require('./router/cart.router');
 const auth = require('./router/auth.router');
 const authMid = require('./middleware/auth.middleware');
 const session = require('./middleware/session.middleware');
+const apiTransaction = require('./api/router/transaction.router');
+const apiLogin = require('./api/router/login.router');
 
 app.set('views', './views');
 app.set('view engine','pug');
@@ -40,6 +42,8 @@ app.use('/users', authMid.checkNotLogin, authMid.checkIsRoot, usersRouter);
 app.use('/transaction', authMid.checkNotLogin, transactionRouter);
 app.use('/auth', auth);
 app.use('/cart', cart);
+app.use('/api/transactions', apiTransaction)
+app.use('/api/login', apiLogin)
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
