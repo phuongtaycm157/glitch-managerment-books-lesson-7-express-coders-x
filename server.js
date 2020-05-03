@@ -20,6 +20,8 @@ const auth = require('./router/auth.router');
 const authMid = require('./middleware/auth.middleware');
 const session = require('./middleware/session.middleware');
 const apiTransaction = require('./api/router/transaction.router');
+const apiBook = require('./api/router/book.router');
+const apiUser = require('./api/router/user.router');
 const apiLogin = require('./api/router/login.router');
 
 app.set('views', './views');
@@ -43,6 +45,8 @@ app.use('/transaction', authMid.checkNotLogin, transactionRouter);
 app.use('/auth', auth);
 app.use('/cart', cart);
 app.use('/api/transactions', apiTransaction)
+app.use('/api/books', apiBook)
+app.use('/api/users', apiUser)
 app.use('/api/login', apiLogin)
 
 // listen for requests :)
