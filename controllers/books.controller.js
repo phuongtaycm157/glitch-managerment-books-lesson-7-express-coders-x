@@ -1,15 +1,15 @@
 var shortid = require('shortid');
-var db = require('../db.js');
+var Book = require('../models/books.model')
 
 var controllers = {};
 
-controllers.index = (req, res) => {
+controllers.index = async function(req, res) {
     var page = req.query.page || 1;
     var numberItemInAPage = 7;
     var start = (page - 1) * numberItemInAPage;
     var end = numberItemInAPage * page;
      
-    var books = db.get('books').value();
+    var books = await Book.find();
     var sendBooks = books.slice(start, end);
     var endPage = Math.ceil(books.length/numberItemInAPage);
     res.render('books/index', {
@@ -22,28 +22,33 @@ controllers.index = (req, res) => {
 
 controllers.postCreate = (req, res) => {
     var book = req.body;
-    book.id = shortid.generate();
-    db.get('books').push(book).write();
+    book.cover = 'https://cdn.glitch.com/368de421-7fd9-4602-849e-b8752f5af992%2Fcoverbook.jpg?v=1588096771010';
+    Book.create(book, function(err, book){
+      if (err) return console.log(err);
+    })
     res.redirect('/books');
 }
 
-controllers.title = (req, res) => {
-    var id = req.params;
-    var book = db.get('books').find(id).value();
+controllers.title = async function(req, res) {
+    var id = req.params.id;
+    var book = await Book.findOne({_id: id})
+    console.log(book)
     res.render('books/modify', {book: book});
 }
 
-controllers.postTitle = (req, res) => {
-    var id = req.params;
-    var book = db.get('books').find(id).value();
-    book.title = req.body.title;
-    db.get('books').find({id: id}).assign(book).write();
+controllers.postTitle = async function(req, res) {
+    var id = req.params.id;
+    var r = await Book.updateOne({_id: id}, {title: req.body.title})
+    console.log(r.n, r.nModified)
     res.redirect('/books');
 }
 
 controllers.delete = (req, res) => {
-    var id = req.params;
-    db.get('books').remove(id).write();
+    var id = req.params.id;
+    // db.get('books').remove(id).write();
+    Book.deleteOne({_id: id}, function(err) {
+      if (err) return console.log(err);
+    })
     res.redirect('/books');
 }
 

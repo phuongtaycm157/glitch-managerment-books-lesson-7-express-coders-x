@@ -7,7 +7,10 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-var cloudinary = require('cloudinary').v2
+const cloudinary = require('cloudinary').v2
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://nishi123:nishi123@nishi-t9fo8.gcp.mongodb.net/manager?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true})
 
 const booksRouter = require('./router/books.router');
 const usersRouter = require('./router/users.router');
